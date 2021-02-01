@@ -49,12 +49,7 @@ namespace TamagotchiAPICS
         {
             var client = new HttpClient();
             var url = $"https://localhost:5001/index.html/api/Pets/{idToSendToApi}/{selectionToSendToApi};
-            var jsonBody = JsonSerializer.Serialize(newItem);
-            var jsonBodyAsContent = new StringContent(jsonBody);
-            jsonBodyAsContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            var response = await client.PostAsync(url, jsonBodyAsContent);
-            var responseJson = await response.Content.ReadAsStreamAsync();
-            var pet = await JsonSerializer.DeserializeAsync<Pet>(responseJson);
+
 
         }
         static async Task AddOnePet(Pet newPet)
